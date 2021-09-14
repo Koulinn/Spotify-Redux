@@ -1,0 +1,300 @@
+/* Comment Section */
+#Comment-Section {
+  max-width: 360px;
+  background-color: #f9f9f9;
+  border-radius: 11px 11px 0px 0px;
+}
+
+/* Comment Section Header */
+
+.comment-section-header {
+  background: #111216;
+  border-radius: 10px 10px 0px 0px;
+  height: 42px;
+}
+.comment-header-label {
+  font-family: Heebo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #f9f9f9;
+  letter-spacing: 0.8px;
+}
+
+#comment-header-icons {
+  right: 0px;
+}
+
+#comment-header-icons > div {
+  height: 42px;
+  width: 42px;
+}
+
+#comment-header-icons > div > svg {
+  fill: #f9f9f9;
+  display: flex;
+}
+
+.comment-header-icon-hide,
+.comment-header-icon-show {
+  height: 42px;
+  width: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-header-icon-show {
+}
+
+/* Comment Card */
+
+.card-Wrapper {
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin: 16px;
+}
+
+/* CommentCardTopMetaStats */
+
+.CommentCardTopMetaStats-Wrapper {
+  margin: 16px 8px 0px 16px;
+}
+
+.Avatar-Wrapper {
+  width: 40px;
+  height: 40px;
+}
+
+.Avatar-Wrapper > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.Username-Wrapper {
+  margin: 0 8px;
+}
+
+.Username-Wrapper > span {
+  font-family: Heebo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  letter-spacing: 0.8px;
+}
+
+.PublishedDate-Wrapper > span {
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+/* Comment Card Text */
+.CommentDisplayArea-Wrapper {
+  margin: 8px 16px 8px 16px;
+}
+
+.CommentDisplayArea-Wrapper > p {
+  font-family: "IBM Plex Serif";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+/* Comment Card Bottom Stats */
+
+.commentCardBottomStats-Wrapper {
+  margin-bottom: 16px;
+}
+.like-Wrapper {
+  margin-left: 16px;
+}
+
+.like-amount-Wrapper {
+  margin-left: 8px;
+  margin-right: 16px;
+}
+
+.like-Icon-Wrapper svg {
+  fill: #828080;
+}
+
+.like-amount-Wrapper > span {
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.like-answer-inlink-btn-Wrapper > span {
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.8px;
+}
+
+/* Comment Show More Inline Btn */
+.CommentShowMoreInlineBtn-Wrapper {
+  margin: 16px auto;
+}
+
+.CommentShowMoreInlineBtn-Wrapper > p {
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  text-align: center;
+}
+
+/* Write Comment Form */
+
+.form-Wrapper > form {
+  margin: 16px 16px 0px 16px;
+}
+
+.textarea-style {
+  font-family: Heebo;
+  background: #f8fafc;
+  border: 0.5px solid #a9a9a9;
+  box-sizing: border-box;
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  width: 100%;
+  max-height: 512px;
+  min-height: 96px;
+  padding: 4px 8px;
+}
+
+.textarea-style:focus-visible {
+  border: 2px solid #5dcdd4;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Publish Btn */
+
+.publishBtn-Wrapper {
+  background: linear-gradient(133.7deg, #dddddd 2.06%, #ffffff 95.18%), #e3edf7;
+  box-shadow: -6px -2px 16px rgba(255, 255, 255, 0.8),
+    6px 5px 20px rgba(158, 158, 158, 0.4);
+  border-radius: 40px;
+  height: 40px;
+  width: 50%;
+  margin: 28px auto 32px auto;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.publishBtn-Wrapper > p {
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  color: #212529;
+  transform: translateY(2px);
+
+  text-align: center;
+}
+
+.publishBtn-Wrapper:active {
+  background: linear-gradient(133.7deg, #efede9 55.41%, #ffffff 95.18%), #e3edf7;
+  box-shadow: inset -6px -2px 8px rgba(189, 189, 189, 0.6),
+    inset 6px 5px 8px rgba(88, 84, 84, 0.2);
+  border-radius: 40px;
+}
+
+/* Comment Menu Open */
+#CommentAreaOverlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(111, 111, 111, 0.4);
+  top: 0px;
+  z-index: 5;
+}
+
+.MenuOptions {
+  background: #f9f9f9;
+  border-radius: 8px;
+  position: absolute;
+  right: -16px;
+  top: 64px;
+  z-index: 10;
+  width: 148px;
+  box-shadow: -4px 2px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.MenuOptions > ul {
+  padding: 0px;
+  margin: 16px 16px 10px 16px;
+}
+
+.MenuOptions > ul > li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.MenuOptions > ul > li:nth-child(2) {
+  margin-top: 16px;
+  min-width: 156px;
+}
+
+.MenuOptions > ul > li > span {
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.MenuOptions svg {
+  transform: translateY(-1.5px);
+}
+
+.MenuTriangle {
+  position: absolute;
+  top: 45px;
+  right: 17.5px;
+  width: 0;
+  height: 0;
+  z-index: 9;
+}
+
+.OpenMenu-Outter-Wrapper {
+  top: 0px;
+  right: 16px;
+}
+
+.OpenMenu-InnerWrapper {
+  filter: drop-shadow(-4px 2px 4px rgba(0, 0, 0, 0.25)),
+    drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+}
+
+.menuClose-btn {
+  transform: translateX(-6px);
+}
+
+.MenuOptions hr {
+  margin-bottom: 12px;
+}
