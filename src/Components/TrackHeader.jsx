@@ -15,8 +15,8 @@ useEffect(()=>getDataFromAPI() ,[props.currentAlbumID])
             let response = await fetch(`https://deezerdevs-deezer.p.rapidapi.com/album/` + props.currentAlbumID, {
                 method:'GET',
                 headers: {
-                    "x-rapidapi-key": "7936e2646fmsheda4961f0b64102p1feadcjsn42edaa043d62",
-                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": process.env.REACT_APP_DEEZER_KEY,
+                    "x-rapidapi-host": process.env.REACT_APP_DEEZER_HOST,
                 }
             })
             if(response.ok){

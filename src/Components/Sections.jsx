@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Row } from 'react-bootstrap'
+import requests from '../lib'
 import CardComp from './SharedComp/CardComp'
+
+const {getFromDeezerRapid} = requests
 
 function Sections(props) {
     const [musics, setMusics] = useState(false)
@@ -14,9 +17,10 @@ function Sections(props) {
 
 const getDataFromAPI = async (query, endpoint = 'search?q=') => {
     try {
-        let response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/${endpoint}` + query)
-        let dataRequested = await response.json()
-        setMusics(dataRequested.data.slice(0, 7))
+        
+        const musics = await getFromDeezerRapid(query)
+        console.log(musics)
+        setMusics(musics.slice(0, 7))
     } catch (e) {
         return e
     }

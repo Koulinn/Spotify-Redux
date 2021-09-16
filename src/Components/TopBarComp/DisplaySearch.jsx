@@ -4,6 +4,8 @@ import { Row } from 'react-bootstrap'
 import CardComp from '../SharedComp/CardComp'
 import SadSearch from '../SharedComp/SadSearch'
 import Spinner from '../SharedComp/Spinner'
+import requests from '../../lib'
+const {getFromDeezerRapid} = requests
 
 
 function DisplaySearch(props) {
@@ -21,20 +23,19 @@ function DisplaySearch(props) {
         if((props.searchValue.length > 1) && (props.searchValue.charAt(0) !== ' ')){
             setIsLoading(true)
             try {
-                let response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=` + props.searchValue)
-    
-                if (response.ok) {
+                let response = await getFromDeezerRapid(props.searchValue)
+                console.log(response)
                     setIsLoading(false)
     
-                    let dataRequested = await response.json()
-                    if(dataRequested.data.length === 0){
+                    
+                    if(response.length === 0){
                         setNoResults(true)
-                        setTimeout(()=>setMusics(dataRequested.data),500)
+                        // setTimeout(()=>setMusics(response.data.data),500)
                     } else {
                         setNoResults(false)
-                        setTimeout(()=>setMusics(dataRequested.data),500)
+                        setTimeout(()=>setMusics(response),500)
                     }
-                }
+                
             } catch (e) {
                 return e
             }
