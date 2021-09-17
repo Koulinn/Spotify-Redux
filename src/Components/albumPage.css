@@ -127,7 +127,7 @@ h1 {
 }
 
 #trackTable .tableMusicTitle {
-    width: 100%;
+    width: 50%;
     overflow: hidden;
 }
 
@@ -150,4 +150,9 @@ h1 {
 #tableHeader{
     transition: background-color .4s ease;
 
+}
+
+
+.playListMenu{
+    list-style: none;
 }

@@ -8,6 +8,7 @@ import ArtistPage from './ArtistPage'
 import SideBar from './SideBar/SideBar'
 import { useState, useEffect } from 'react'
 import Search from './TopBarComp/Search'
+import PlayListPage from './views/PlayListPage'
 
 function Home(props) {
     const [pathName, setpathName] = useState(window.location.pathname)
@@ -22,6 +23,8 @@ function Home(props) {
                 <Route path="/albumPage/:albumID" exact render={(routerProps) => <AlbumPage setCurrentMusic={setCurrentMusic} {...routerProps} setpathName={setpathName}></AlbumPage>}></Route>
                 <Route path="/artistPage/" exact render={(routerProps) => <ArtistPage setCurrentMusic={setCurrentMusic} {...routerProps} setpathName={setpathName}></ArtistPage>}></Route>
                 <Route path="/search" exact render={(routerProps) => <Search {...routerProps} setCurrentMusic={setCurrentMusic} setpathName={setpathName}></Search>}></Route>
+                <Route path="/playLists" exact render={(routerProps) => <PlayListPage {...routerProps} setCurrentMusic={setCurrentMusic} setpathName={setpathName}></PlayListPage>}></Route>
+                
 
                 <PlayerBottom currentMusic={currentMusic}></PlayerBottom>
             </Router>

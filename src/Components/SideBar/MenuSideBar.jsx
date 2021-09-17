@@ -1,6 +1,8 @@
 import React from 'react'
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
+
+
 
 
 function MenuSideBar(props) {
@@ -9,7 +11,7 @@ function MenuSideBar(props) {
 
 
 
-            <li className={props.location.pathname==="/" ? "d-flex align-items-center w-100 menuActive" : "d-flex align-items-center w-100" }>
+            <li className={props.location.pathname === "/" ? "d-flex align-items-center w-100 menuActive" : "d-flex align-items-center w-100"}>
                 <Link to="/">
                     <button type="button" className="d-flex align-items-center w-100 p-2">
                         <div className="d-flex align-items-center justify-content-center p-0 mx-3">
@@ -24,7 +26,7 @@ function MenuSideBar(props) {
                 </Link>
             </li>
 
-            <li className={props.location.pathname==="/search" ? "d-flex align-items-center w-100 menuActive" : "d-flex align-items-center w-100" }>
+            <li className={props.location.pathname === "/search" ? "d-flex align-items-center w-100 menuActive" : "d-flex align-items-center w-100"}>
                 <Link to="/search">
                     <button type="button" className="d-flex align-items-center w-100 p-2">
                         <div className="d-flex align-items-center justify-content-center p-0 mx-3">
@@ -46,16 +48,18 @@ function MenuSideBar(props) {
 
 
             <li className="d-flex align-items-center w-100">
-                <button type="button" className="d-flex align-items-center w-100 p-2">
-                    <div className="d-flex align-items-center justify-content-center p-0 mx-3">
-                        <svg viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M291.301 81.778l166.349 373.587-19.301 8.635-166.349-373.587zM64 
-            463.746v-384h21.334v384h-21.334zM192 463.746v-384h21.334v384h-21.334z" fill="currentColor">
-                            </path>
-                        </svg>
-                    </div>
-                    <span>Your Library</span>
-                </button>
+                <Link to="/playLists">
+                    <button type="button" className="d-flex align-items-center w-100 p-2">
+                        <div className="d-flex align-items-center justify-content-center p-0 mx-3">
+                            <svg viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M291.301 81.778l166.349 373.587-19.301 8.635-166.349-373.587zM64 
+                                    463.746v-384h21.334v384h-21.334zM192 463.746v-384h21.334v384h-21.334z" fill="currentColor">
+                                </path>
+                            </svg>
+                        </div>
+                        <span>Your Library</span>
+                    </button>
+                </Link>
             </li>
 
         </ul>

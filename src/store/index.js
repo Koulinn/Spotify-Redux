@@ -1,10 +1,10 @@
 import {applyMiddleware, createStore, combineReducers,compose} from "redux";
 import { playerReducer } from "../reducers";
-//import reducer Geury
-// import reducer Rafa
 import thunk from "redux-thunk";
 import musicsReducer from "../reducers/LoadMusicReducer";
+import { playListsReducer } from "../reducers/playList-reducer";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+
 
 export const initialState ={
     musics:{
@@ -15,11 +15,10 @@ export const initialState ={
 }
 
 export const groupedReducers = combineReducers({
-    playerReducer: playerReducer
-  
-
-     ,musics:musicsReducer
-})
+        musics:musicsReducer,
+        playerReducer: playerReducer,
+        playLists: playListsReducer
+    })
 
 
 // tomas also need
