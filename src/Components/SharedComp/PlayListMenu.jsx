@@ -1,16 +1,18 @@
 import React from 'react'
 import { Accordion, Card, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { addMusicToPlaylist } from '../../actions/playListReducer-Actions'
+import { addMusicToPlaylist, removeNewPlayListAlert } from '../../actions/playListReducer-Actions'
 import { useState } from 'react'
 
 
 const reduxStateToProps = state => state
 const DispatchsToProps = (dispatch) => ({
-    addMusicToReduxPlayList: (payload) => dispatch(addMusicToPlaylist(payload))
+    addMusicToReduxPlayList: (payload) => dispatch(addMusicToPlaylist(payload)),
+    removeAlert: ()=>dispatch(removeNewPlayListAlert())
+
 })
 
-function PlayListMenu({ playLists, show, setShow, ...props }) {
+function PlayListMenu({ playLists, show, setShow, track, addMusicToReduxPlayList, removeAlert, ...props }) {
 
 
 
@@ -20,11 +22,21 @@ function PlayListMenu({ playLists, show, setShow, ...props }) {
         return playListKeys ? playListKeys : []
     }
 
+    const callActionFromDispatchs = (playListName) =>{
+        addMusicToReduxPlayList({
+            playListName: playListName,
+            newMusic: track
+        })
+        setTimeout(()=>removeAlert(),3000)
+
+
+    }
+
 
     return (
         <ul className={show ? "playListMenu" : 'd-none'}>
             {getPlayLists().map((playListName, i) =>
-                <li key={i} className={'playListMenu my-3'}> {playListName}</li>
+                <li key={i} className={'playListMenu my-3'} onClick={()=>callActionFromDispatchs(playListName)}> {playListName}</li>
             )}
         </ul>
     )
