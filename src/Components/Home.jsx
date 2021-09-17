@@ -25,8 +25,8 @@ function Home(props) {
       }
       fluid
     >
-      <Router>
-        <SideBar></SideBar>
+      
+        
             <Router>
                 <SideBar></SideBar>
 
