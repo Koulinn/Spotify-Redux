@@ -2,17 +2,24 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { playListsReducer } from '../../reducers/playList-reducer'
 import { withRouter } from 'react-router'
+import { useEffect, useState } from 'react'
+import ModalPlaylist from './ModalPlaylist'
 
 const reduxStateToProps = state => state
 
 
 function SidePlayListMenu(props) {
-  console.log(props)
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
   return (
     <div className="sub-menu">
       <ul className="nav-menu d-flex flex-column mb-0 p-0">
         <li className="d-flex align-items-center w-100">
-          <button type="button" className="d-flex align-items-center w-100 p-2">
+          <button type="button" className="d-flex align-items-center w-100 p-2" onClick={handleShow}>
             <div className="square d-flex align-items-center justify-content-center p-0 mx-3">
               <svg role="img" height="12" width="12" viewBox="0 0 16 16">
                 <path d="M14 7H9V2H7v5H2v2h5v5h2V9h5z"></path>
@@ -37,6 +44,7 @@ function SidePlayListMenu(props) {
           </button>
         </li>
       </ul>
+      <ModalPlaylist show={show} handleClose={handleClose}/>
     </div>
   )
 }
