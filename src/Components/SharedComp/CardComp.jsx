@@ -3,11 +3,19 @@ import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {setMusicToPlay} from '../../actions'
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
+
 
 const mapStateRedux = state => state
 const mapDispatchToProps = (dispatch) => ({
     setNewPlayingMusic: (payload)=>dispatch(setMusicToPlay(payload))
   })
+
+// LIKE logic
+//   {!favListReducer.companiesList.includes(company_name)?
+//     <MdFavoriteBorder onClick={()=> callAddCompanyToFav(company_name)} />
+//     : <MdFavorite onClick={()=> callRemoveCompanyFromFav(company_name)} />
+// }
 
 function CardComp(props) {
 
