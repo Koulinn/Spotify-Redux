@@ -20,7 +20,7 @@ export const playListsReducer = (state = playList, action) => {
             }
         case 'ADD_TO_PLAYLIST':
             return {
-                ...state,
+                ...state,                                               
                 [action.payload.playListName]: [...state[action.payload.playListName], action.payload.newMusic],
                 isNewPlayList: true
             }
