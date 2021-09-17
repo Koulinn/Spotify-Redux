@@ -1,16 +1,16 @@
 import { createStore, combineReducers } from "redux";
 import { playerReducer } from "../reducers";
 //import reducer Geury
-// import reducer Rafa
+import { playListsReducer } from "../reducers/playList-reducer";
 // import reducer Tomas
 // import Thunk Tomas
 
 
 
 export const groupedReducers = combineReducers({
-    playerReducer: playerReducer
+    playerReducer: playerReducer,
     // create a likeReducer - Geury
-    // create playlistReducer - Rafael
+    playLists: playListsReducer
     // loadMusicReducer - Tomas
 })
 
