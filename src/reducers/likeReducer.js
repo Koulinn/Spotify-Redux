@@ -13,7 +13,12 @@ export const likeReducer = (state = initialStateLike, action) => {
       };
 
     case "REMOVE_SONGS_LIKE":
-      return {};
+      console.log(action.payload);
+      console.log(state);
+      return {
+        ...state,
+        songLike: state.songLike.filter((song, i) => i !== action.payload),
+      };
     default:
       return state;
   }

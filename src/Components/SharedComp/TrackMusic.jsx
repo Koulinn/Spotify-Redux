@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { connect } from "react-redux";
-import { actionSongLike } from "../../actions/actionSongLike";
+import { actionSongLike, actionSongRemove } from "../../actions/actionSongLike";
 
 const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = (dispatch) => ({
   addSongLike: (songs) => dispatch(actionSongLike(songs)),
+  removeSong: (index) => dispatch(actionSongRemove(index)),
 });
 
 function TrackMusic(props) {
@@ -53,7 +54,7 @@ function TrackMusic(props) {
               zIndex: "10px",
             }}
             // clickHeartFun &&
-            onClick={() => props.addSongLike(props.track) && clickHeartFun()}
+            onClick={() => props.removeSong(props.i) && clickHeartFun()}
           />
         ) : (
           <AiOutlineHeart
