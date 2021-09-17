@@ -48,7 +48,14 @@ function PlayerControls(props) {
           <path d="M4.018 14L14.41 8 4.018 2z"></path>
         </svg>
       </div>
-      <div id="player-next-music" className="icon-target-area mx-2">
+      <div id="player-next-music" className="icon-target-area mx-2"
+      onClick={()=> {
+        console.log(audioRef.current.src)
+        
+        audioRef.current.pause()}}
+      >
+      
+      
         <svg role="img" height="16" width="16" viewBox="0 0 16 16">
           <path d="M11 3v4.119L3 2.5v11l8-4.619V13h2V3z"></path>
         </svg>

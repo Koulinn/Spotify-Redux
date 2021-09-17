@@ -9,6 +9,12 @@ const mapDispatchToProps = (dispatch) => ({
     setNewPlayingMusic: (payload)=>dispatch(setMusicToPlay(payload))
   })
 
+
+//   {!favListReducer.companiesList.includes(company_name)?
+//     <MdFavoriteBorder onClick={()=> callAddCompanyToFav(company_name)} />
+//     : <MdFavorite onClick={()=> callRemoveCompanyFromFav(company_name)} />
+// }
+
 function CardComp(props) {
 
 
