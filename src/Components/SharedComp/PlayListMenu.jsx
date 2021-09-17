@@ -11,7 +11,7 @@ const DispatchsToProps = (dispatch) => ({
 })
 
 function PlayListMenu({ playLists, show, setShow, ...props }) {
-  
+
 
 
     const getPlayLists = () => {
@@ -20,10 +20,12 @@ function PlayListMenu({ playLists, show, setShow, ...props }) {
         return playListKeys ? playListKeys : []
     }
 
-    
+
     return (
         <ul className={show ? "playListMenu" : 'd-none'}>
-            {getPlayLists().map((playListName, i) => <li key={i} className={'playListMenu my-3'}> {playListName}</li>)}
+            {getPlayLists().map((playListName, i) =>
+                <li key={i} className={'playListMenu my-3'}> {playListName}</li>
+            )}
         </ul>
     )
 }
