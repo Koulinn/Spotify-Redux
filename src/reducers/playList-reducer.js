@@ -18,6 +18,12 @@ export const playListsReducer = (state = playList, action) => {
                 ...state,
                 isNewPlayList: false
             }
+        case 'ADD_TO_PLAYLIST':
+            return {
+                ...state,
+                [action.payload.playListName]: [...state[action.payload.playListName], action.payload.newMusic],
+                isNewPlayList: true
+            }
         default: {
             console.log('inside default playListsReducer')
             return state
