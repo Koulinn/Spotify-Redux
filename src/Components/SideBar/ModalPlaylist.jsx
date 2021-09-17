@@ -16,7 +16,6 @@ const DispatchsToProps = (dispatch) => ({
 
 function ModalPlaylist({ show, handleClose, createPlayListToDispatch, removeAlert, ...props }) {
     const [playListName, setPlayListName] = useState('')
-    console.log(props)
 
     const sendNewPlayListToStore = () => {
         createPlayListToDispatch(playListName)
@@ -24,6 +23,7 @@ function ModalPlaylist({ show, handleClose, createPlayListToDispatch, removeAler
         setTimeout(()=>removeAlert(),3000)
 
     }
+
     return (
         <Modal show={show} onHide={handleClose} style={{ zIndex: 10000 }}>
             <Modal.Header closeButton>
