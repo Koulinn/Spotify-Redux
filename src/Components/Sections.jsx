@@ -3,30 +3,22 @@ import { useState, useEffect } from 'react'
 import { Row } from 'react-bootstrap'
 import requests from '../lib'
 import CardComp from './SharedComp/CardComp'
+import { connect } from 'react-redux'
+import { fillMusicsAction } from '../actions/LoadMusicsAction'
+// const {getFromDeezerRapid} = requests
 
-const {getFromDeezerRapid} = requests
+const mapStateToProps = (state)=>state
 
-function Sections(props) {
-    const [musics, setMusics] = useState(false)
+const mapDispatchToProps =dispatch=>({
+    fetchData:(query)=>dispatch(fillMusicsAction(query))
+    
+})
 
-
+function Sections({...props}) {
+console.log('all props 1',props)
     useEffect(()=> {
-        getDataFromAPI(props.sectionTitle)
+        props.fetchData(props.sectionTitle)
     },[])
-
-
-const getDataFromAPI = async (query, endpoint = 'search?q=') => {
-    try {
-        
-        const musics = await getFromDeezerRapid(query)
-        console.log(musics)
-        setMusics(musics.slice(0, 7))
-    } catch (e) {
-        return e
-    }
-}
-
-
     return (
         <section className="row d-flex flex-column mt-3 py-0 px-4 m-0" id={props.sectionTitle}>
             <div className="col-12 p-0 d-flex justify-content-between align-items-center">
@@ -40,7 +32,17 @@ const getDataFromAPI = async (query, endpoint = 'search?q=') => {
                 <span className="seeMore">SEE ALL</span>
             </div>
             <Row className="row d-flex px-0 cardDeck">
-                {musics && musics.map((music, i)=> 
+                {/* 
+                // currently you are createing cards based on o the same list "songs"
+                but each section must retrive the music from it's own list
+
+                currently prop.musics.songs
+
+                but what you need is to make props.musics[sectionListName]
+                then each sectionListName will have it`s own list with musics
+
+                */}
+                {props.musics[props.sectionTitle] && props.musics[props.sectionTitle].map((music, i)=> 
                         i < 2 ? <CardComp key={music.id} setCurrentMusic={props.setCurrentMusic} music={music} responsiveness="d-flex card col flex-nowrap card-square" ></CardComp>
                         : i === 3 ? <CardComp key={music.id} setCurrentMusic={props.setCurrentMusic} music={music} responsiveness="card col flex-nowrap card-square d-none d-md-flex"></CardComp>
                         : i === 4 || i === 5 ? <CardComp setCurrentMusic={props.setCurrentMusic} key={music.id} music={music} responsiveness="card col flex-nowrap card-square d-none d-lg-flex"></CardComp>
@@ -53,4 +55,4 @@ const getDataFromAPI = async (query, endpoint = 'search?q=') => {
     )
 }
 
-export default Sections
+export default connect(mapStateToProps,mapDispatchToProps)(Sections)

@@ -1,24 +1,31 @@
-import { createStore, combineReducers } from "redux";
+import {applyMiddleware, createStore, combineReducers,compose} from "redux";
 import { playerReducer } from "../reducers";
 //import reducer Geury
 // import reducer Rafa
-// import reducer Tomas
-// import Thunk Tomas
+import thunk from "redux-thunk";
+import musicsReducer from "../reducers/LoadMusicReducer";
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 
-
+export const initialState ={
+    musics:{
+        
+        loading:true,
+        error:false,
+    }
+}
 
 export const groupedReducers = combineReducers({
     playerReducer: playerReducer
-    // create a likeReducer - Geury
-    // create playlistReducer - Rafael
-    // loadMusicReducer - Tomas
+  
+
+     ,musics:musicsReducer
 })
 
 
 // tomas also need
 const configureStore = createStore(
     groupedReducers,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    initialState,
+    process.env.REACT_APP_DEVELOPMENT? composeEnhancers(applyMiddleware(thunk)):compose(applyMiddleware(thunk))
 )
-
 export default configureStore
