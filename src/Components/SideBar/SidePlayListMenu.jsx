@@ -4,11 +4,12 @@ import { playListsReducer } from '../../reducers/playList-reducer'
 import { withRouter } from 'react-router'
 import { useEffect, useState } from 'react'
 import ModalPlaylist from './ModalPlaylist'
+import { Alert } from 'react-bootstrap'
 
 const reduxStateToProps = state => state
 
 
-function SidePlayListMenu(props) {
+function SidePlayListMenu({ playLists, ...props }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -17,6 +18,12 @@ function SidePlayListMenu(props) {
 
   return (
     <div className="sub-menu">
+      {playLists.isNewPlayList ?
+        <Alert variant="success">
+          New playlist added successfully!
+        </Alert>
+        : ''
+      }
       <ul className="nav-menu d-flex flex-column mb-0 p-0">
         <li className="d-flex align-items-center w-100">
           <button type="button" className="d-flex align-items-center w-100 p-2" onClick={handleShow}>
@@ -44,7 +51,7 @@ function SidePlayListMenu(props) {
           </button>
         </li>
       </ul>
-      <ModalPlaylist show={show} handleClose={handleClose}/>
+      <ModalPlaylist show={show} handleClose={handleClose} />
     </div>
   )
 }

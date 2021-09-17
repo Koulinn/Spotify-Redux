@@ -2,17 +2,26 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { useState } from 'react'
+import { createPlayList, removeNewPlayListAlert } from '../../actions/playListReducer-Actions'
+
 
 
 const reduxStateToProps = state => state
+const DispatchsToProps = (dispatch) => ({
+    createPlayListToDispatch: (payload) => dispatch(createPlayList(payload)),
+    removeAlert: ()=>dispatch(removeNewPlayListAlert())
+
+})
 
 
-function ModalPlaylist({ show, handleClose, ...props }) {
+function ModalPlaylist({ show, handleClose, createPlayListToDispatch, removeAlert, ...props }) {
     const [playListName, setPlayListName] = useState('')
+    console.log(props)
 
-    const createPlayList = () => {
-        
-        // handleClose()
+    const sendNewPlayListToStore = () => {
+        createPlayListToDispatch(playListName)
+        handleClose()
+        setTimeout(()=>removeAlert(),3000)
 
     }
     return (
@@ -42,7 +51,7 @@ function ModalPlaylist({ show, handleClose, ...props }) {
                 <Button type='submit' variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={(e) => createPlayList()}>
+                <Button variant="primary" onClick={(e) => sendNewPlayListToStore()}>
                     Create playlist
                 </Button>
             </Modal.Footer>
@@ -50,4 +59,4 @@ function ModalPlaylist({ show, handleClose, ...props }) {
     )
 }
 
-export default connect(reduxStateToProps)(ModalPlaylist)
+export default connect(reduxStateToProps,DispatchsToProps)(ModalPlaylist)
