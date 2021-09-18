@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import Sections from '../Sections'
+import Sections from '../SharedComp/Sections'
 import TopBar from '../TopBarComp/TopBar'
 
 export default function MainPage(props) {

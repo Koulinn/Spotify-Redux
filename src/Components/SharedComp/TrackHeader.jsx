@@ -1,7 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import TrackMusic from './SharedComp/TrackMusic'
+import TrackMusic from './TrackMusic'
 import useScrollPosition from '@react-hook/window-scroll'
 
 function TrackHeader(props) {

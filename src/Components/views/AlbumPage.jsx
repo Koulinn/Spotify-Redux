@@ -1,11 +1,11 @@
 import React from 'react'
-import Sections from '../Sections'
+import Sections from '../SharedComp/Sections'
 import AlbumCover from '../SharedComp/AlbumCover'
 import TopBar from '../TopBarComp/TopBar'
 import { withRouter } from 'react-router'
 import { useState, useEffect } from 'react'
 import AlbumMiddleSection from '../AlbumMiddleSection'
-import TrackHeader from '../TrackHeader'
+import TrackHeader from '../SharedComp/TrackHeader'
 import '../albumPage.css'
 
 function AlbumPage(props) {

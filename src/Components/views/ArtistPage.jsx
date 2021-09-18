@@ -1,5 +1,5 @@
 import React from 'react'
-import Sections from '../Sections'
+import Sections from '../SharedComp/Sections'
 import TopBar from '../TopBarComp/TopBar'
 
 import CommentSection from '../CommentArea/CommentSection'

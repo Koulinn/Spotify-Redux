@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Row } from 'react-bootstrap'
-import requests from '../lib'
-import CardComp from './SharedComp/CardComp'
+import requests from '../../lib'
+import CardComp from './CardComp'
 import { connect } from 'react-redux'
-import { fillMusicsAction } from '../actions/LoadMusicsAction'
+import { fillMusicsAction } from '../../actions/LoadMusicsAction'
 // const {getFromDeezerRapid} = requests
 
 const mapStateToProps = (state)=>state
