@@ -1,7 +1,7 @@
 import React from 'react'
 import { Accordion, Card, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { addMusicToPlaylist, removeNewPlayListAlert } from '../../actions/playListReducer-Actions'
+import { addMusicToPlaylist, removeNewPlayListAlert } from '../../redux/actions/playListReducer-Actions'
 import { useState } from 'react'
 
 

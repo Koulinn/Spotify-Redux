@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {setMusicToPlay} from '../../actions'
+import {setMusicToPlay} from '../../redux/actions'
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 
 

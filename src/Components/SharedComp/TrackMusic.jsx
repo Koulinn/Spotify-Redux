@@ -2,7 +2,7 @@
 import React from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { connect } from "react-redux";
-import { actionSongLike, actionSongRemove } from "../../actions/actionSongLike";
+import { actionSongLike, actionSongRemove } from "../../redux/actions/actionSongLike";
 import { MdAdd } from 'react-icons/md'
 import PlayListMenu from './PlayListMenu'
 import { useState } from 'react'

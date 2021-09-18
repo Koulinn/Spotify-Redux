@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { playListsReducer } from '../../reducers/playList-reducer'
+import { playListsReducer } from '../../redux/reducers/playList-reducer'
 import { withRouter } from 'react-router'
 import { useEffect, useState } from 'react'
 import ModalPlaylist from './ModalPlaylist'

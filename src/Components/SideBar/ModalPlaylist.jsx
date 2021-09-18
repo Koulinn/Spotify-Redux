@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { useState } from 'react'
-import { createPlayList, removeNewPlayListAlert } from '../../actions/playListReducer-Actions'
+import { createPlayList, removeNewPlayListAlert } from '../../redux/actions/playListReducer-Actions'
 
 
 

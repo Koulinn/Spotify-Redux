@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setMusicToPlay } from '../../actions/index.js'
+import { setMusicToPlay } from '../../redux/actions/index.js'
 import { useRef } from 'react'
 import { ActionCreators } from 'redux-undo';
 
