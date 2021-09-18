@@ -2,17 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { setMusicToPlay } from '../../actions/index.js'
 import { useRef } from 'react'
+import { ActionCreators } from 'redux-undo';
 
 
 const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch) => ({
   // setValue: (payload)=>dispatch(setMusicToPlay(payload))
+  redoCurrentMusic: ()=>dispatch(ActionCreators.undo())
 })
 
 
-function PlayerControls(props) {
-  const audioRef = useRef(new Audio(props.playerReducer.player.current));
+function PlayerControls({redoCurrentMusic, ...props}) {
+  const audioRef = useRef(new Audio(props.playerReducer.present.player.current));
   
   
 
@@ -20,7 +22,7 @@ function PlayerControls(props) {
   return (
     <div id="player-controls" className="d-flex justify-content-center align-items-center">
 
-      {console.log(props.playerReducer.player.paused)}
+      {console.log(props.playerReducer.present.player.paused)}
 
 
 
@@ -33,7 +35,7 @@ function PlayerControls(props) {
           </path>
         </svg>
       </div>
-      <div id="player-previous-music" className="icon-target-area mx-2">
+      <div id="player-previous-music" className="icon-target-area mx-2" onClick={()=> redoCurrentMusic()}>
         <svg role="img" height="16" width="16" viewBox="0 0 16 16">
           <path d="M13 2.5L5 7.119V3H3v10h2V8.881l8 4.619z"></path>
         </svg>
@@ -41,7 +43,7 @@ function PlayerControls(props) {
       <div id="player-play-music" className="play-button d-flex justify-content-center align-items-center mx-2"
       onClick={()=> {
         console.log(audioRef.current.src)
-        audioRef.current.src=props.playerReducer.player.current
+        audioRef.current.src=props.playerReducer.present.player.current
         audioRef.current.play()}}
       >
         <svg id="play-Icon" role="img" height="16" width="16" viewBox="0 0 16 16">
