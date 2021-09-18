@@ -35,7 +35,7 @@ function ModalPlaylist({ show, handleClose, createPlayListToDispatch, removeAler
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>New playlist name:</Form.Label>
                         <Form.Control
-                            type="email"
+                            type="text"
                             placeholder="Enter playlist name"
                             onChange={(e) => {
                                 setPlayListName(e.target.value)
