@@ -15,7 +15,6 @@ const mapDispatchToProps =dispatch=>({
 })
 
 function Sections({...props}) {
-console.log('all props 1',props)
     useEffect(()=> {
         props.fetchData(props.sectionTitle)
     },[])
