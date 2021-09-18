@@ -1,12 +1,12 @@
 import React from 'react'
-import Sections from './Sections'
-import AlbumCover from './SharedComp/AlbumCover'
-import TopBar from './TopBarComp/TopBar'
+import Sections from '../Sections'
+import AlbumCover from '../SharedComp/AlbumCover'
+import TopBar from '../TopBarComp/TopBar'
 import { withRouter } from 'react-router'
 import { useState, useEffect } from 'react'
-import AlbumMiddleSection from './AlbumMiddleSection'
-import TrackHeader from './TrackHeader'
-import './albumPage.css'
+import AlbumMiddleSection from '../AlbumMiddleSection'
+import TrackHeader from '../TrackHeader'
+import '../albumPage.css'
 
 function AlbumPage(props) {
     const [currentTrackList, setCurrenTrackList] = useState('')
