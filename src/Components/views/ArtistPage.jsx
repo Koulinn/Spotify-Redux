@@ -1,8 +1,8 @@
 import React from 'react'
-import Sections from './Sections'
-import TopBar from './TopBarComp/TopBar'
+import Sections from '../Sections'
+import TopBar from '../TopBarComp/TopBar'
 
-import CommentSection from './CommentArea/CommentSection'
+import CommentSection from '../CommentArea/CommentSection'
 
 
 function ArtistPage() {
