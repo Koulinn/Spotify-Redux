@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setMusicToPlay } from '../../redux/actions/index.js'
+import { pauseMusic, playMusic } from '../../redux/actions/index.js'
 import { useRef } from 'react'
 import { ActionCreators } from 'redux-undo';
 
@@ -8,15 +8,19 @@ import { ActionCreators } from 'redux-undo';
 const mapStateToProps = (state) => state
 
 const mapDispatchToProps = (dispatch) => ({
-  // setValue: (payload)=>dispatch(setMusicToPlay(payload))
-  redoCurrentMusic: ()=>dispatch(ActionCreators.undo())
+  pauseMusic: () => dispatch(pauseMusic()),
+  playMusic: () => dispatch(playMusic()),
+  undoCurrentMusic: () => dispatch(ActionCreators.undo()),
+  redoCurrentMusic: () => dispatch(ActionCreators.redo())
+
 })
 
 
-function PlayerControls({redoCurrentMusic, ...props}) {
-  const audioRef = useRef(new Audio(props.playerReducer.present.player.current));
-  
-  
+function PlayerControls({ redoCurrentMusic, pauseMusic, undoCurrentMusic, playMusic, ...props }) {
+  const audioRef = useRef(new Audio(props.playerReducer.present.player.current.preview));
+  const isPaused = props.playerReducer.present.player.paused
+
+
 
 
   return (
@@ -35,29 +39,61 @@ function PlayerControls({redoCurrentMusic, ...props}) {
           </path>
         </svg>
       </div>
-      <div id="player-previous-music" className="icon-target-area mx-2" onClick={()=> redoCurrentMusic()}>
+      <div id="player-previous-music" className="icon-target-area mx-2" onClick={() => undoCurrentMusic()}>
         <svg role="img" height="16" width="16" viewBox="0 0 16 16">
           <path d="M13 2.5L5 7.119V3H3v10h2V8.881l8 4.619z"></path>
         </svg>
       </div>
-      <div id="player-play-music" className="play-button d-flex justify-content-center align-items-center mx-2"
-      onClick={()=> {
-        console.log(audioRef.current.src)
-        audioRef.current.src=props.playerReducer.present.player.current
-        audioRef.current.play()}}
+      {isPaused ? <div id="player-play-music" className="play-button d-flex justify-content-center align-items-center mx-2"
+        onClick={() => {
+          audioRef.current.src = props.playerReducer.present.player.current.preview
+          audioRef.current.play()
+          playMusic()
+        }}
       >
         <svg id="play-Icon" role="img" height="16" width="16" viewBox="0 0 16 16">
           <path d="M4.018 14L14.41 8 4.018 2z"></path>
         </svg>
-      </div>
-      <div id="player-next-music" className="icon-target-area mx-2"
-      onClick={()=> {
-        console.log(audioRef.current.src)
-        
-        audioRef.current.pause()}}
+      </div> :
+        <div id="player-pause-music" className="d-flex justify-content-center align-items-center mx-2 p-2 " style={{ backgroundColor: 'white', borderRadius: '50%' }}
+          onClick={() => {
+            audioRef.current.pause()
+            pauseMusic()
+          }}
+        >
+          <svg role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z"></path><path d="M3 2h3v12H3zm7 0h3v12h-3z"></path></svg>
+        </div>
+      }
+      {/* <div id="player-play-music" className="play-button d-flex justify-content-center align-items-center mx-2"
+        onClick={() => {
+          console.log(audioRef.current.src)
+          audioRef.current.src = props.playerReducer.present.player.current.preview
+          audioRef.current.play()
+        }}
       >
-      
-      
+        <svg id="play-Icon" role="img" height="16" width="16" viewBox="0 0 16 16">
+          <path d="M4.018 14L14.41 8 4.018 2z"></path>
+        </svg>
+      </div> */}
+
+      {/* <div id="player-pause-music" className="d-flex justify-content-center align-items-center mx-2 p-2 " style={{backgroundColor: 'white', borderRadius: '50%'}}
+        onClick={()=> {
+          audioRef.current.pause()
+          pauseMusic()
+        }}
+      >
+        <svg role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z"></path><path d="M3 2h3v12H3zm7 0h3v12h-3z"></path></svg>
+      </div> */}
+
+      <div id="player-next-music" className="icon-target-area mx-2"
+        onClick={() => {
+          console.log(audioRef.current.src)
+
+          redoCurrentMusic()
+        }}
+      >
+
+
         <svg role="img" height="16" width="16" viewBox="0 0 16 16">
           <path d="M11 3v4.119L3 2.5v11l8-4.619V13h2V3z"></path>
         </svg>

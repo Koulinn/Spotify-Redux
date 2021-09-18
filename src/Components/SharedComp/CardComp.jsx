@@ -25,7 +25,7 @@ function CardComp(props) {
             <div className="position-relative"
                 onClick={() => props.setCurrentMusic(props.music)}>
                 <div className="position-absolute d-flex justify-content-center align-items-center cardPlayBtnBg" 
-                onClick={()=> props.setNewPlayingMusic(props.music.preview)}
+                onClick={()=> props.setNewPlayingMusic(props.music)}
                 >
                     <div className="cardPlayBtn">
                     </div>
