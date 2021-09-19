@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { pauseMusic, playMusic } from '../../redux/actions/index.js'
 import { useRef } from 'react'
 import { ActionCreators } from 'redux-undo';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const mapStateToProps = (state) => state
@@ -17,7 +17,19 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-function PlayerControls({ redoCurrentMusic, pauseMusic, undoCurrentMusic, playMusic, ...props }) {
+function PlayerControls({
+  redoCurrentMusic,
+  pauseMusic,
+  undoCurrentMusic,
+  playMusic,
+  setCurrentMusicLength,
+  setMusicDuration,
+  setMusicCurrentTime,
+  ...props
+}) {
+  const intervalRef = useRef();
+
+
   const audioRef = useRef(new Audio(props.playerReducer.present.player.current.preview));
   const isPaused = props.playerReducer.present.player.paused
   const currentMusic = props.playerReducer.present.player.current.preview
@@ -25,11 +37,24 @@ function PlayerControls({ redoCurrentMusic, pauseMusic, undoCurrentMusic, playMu
   useEffect(() => {
     audioRef.current.src = props.playerReducer.present.player.current.preview
     isPaused ? audioRef.current.pause() : audioRef.current.play()
+    isPaused ? clearInterval(intervalRef.current) : musicTimer()
+    if (!isPaused){
+      setTimeout(() => {
+        setMusicDuration(audioRef.current.duration.toFixed())
+      }, 300);
+    }
   },
-    [isPaused, currentMusic]
+  [isPaused, currentMusic]
   )
+  
+  const musicTimer = () => {
+    
+    intervalRef.current = setInterval(() => {
+      setCurrentMusicLength(parseInt((audioRef.current.currentTime/ audioRef.current.duration)*100));
+      setMusicCurrentTime(parseFloat((audioRef.current.currentTime/60).toFixed(2)))
+    }, [300]);
 
-
+  }
 
 
   return (

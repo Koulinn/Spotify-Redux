@@ -676,4 +676,25 @@ section .section-text-aux {
   fill: #1db954;
 }
 
-/* Album Page */
+/* SLIDER */
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+  /* transform: translateY(-6px); */
+}
+
+.slidecontainer > input {
+  width: 100%;
+}
+
+.slider {
+  /* appearance: none;
+  background-color: #1db954; */
+  opacity: 0.5; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
