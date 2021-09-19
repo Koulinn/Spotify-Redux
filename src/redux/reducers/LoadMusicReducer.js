@@ -3,7 +3,6 @@ import { initialState } from "../store";
 const musicsReducer = (state=initialState.musics,action)=>{
     switch(action.type){
         case "FILL_MUSICS":
-            console.log('actionnn',action)
             return{
                 ...state,
               [action.payload.sectionName]:action.payload.musics

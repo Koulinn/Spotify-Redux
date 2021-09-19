@@ -8,7 +8,6 @@ import AccordionBody from '../SharedComp/AccordionBody'
 const reduxStateToProps = state => state
 
 function PlayListPage({ playLists, ...props }) {
-    console.log(props, 'playlist page')
 
     const getPlayLists = () => {
         const playListStoreKeys = Object.keys(playLists)

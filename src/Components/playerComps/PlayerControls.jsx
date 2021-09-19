@@ -34,13 +34,6 @@ function PlayerControls({ redoCurrentMusic, pauseMusic, undoCurrentMusic, playMu
 
   return (
     <div id="player-controls" className="d-flex justify-content-center align-items-center">
-
-      {console.log(props.playerReducer.present.player.paused)}
-
-
-
-
-
       <div id="player-suffle-musics" className="icon-target-area mr-2">
         <svg role="img" height="16" width="16" viewBox="0 0 16 16">
           <path
@@ -73,31 +66,9 @@ function PlayerControls({ redoCurrentMusic, pauseMusic, undoCurrentMusic, playMu
           <svg role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z"></path><path d="M3 2h3v12H3zm7 0h3v12h-3z"></path></svg>
         </div>
       }
-      {/* <div id="player-play-music" className="play-button d-flex justify-content-center align-items-center mx-2"
-        onClick={() => {
-          console.log(audioRef.current.src)
-          audioRef.current.src = props.playerReducer.present.player.current.preview
-          audioRef.current.play()
-        }}
-      >
-        <svg id="play-Icon" role="img" height="16" width="16" viewBox="0 0 16 16">
-          <path d="M4.018 14L14.41 8 4.018 2z"></path>
-        </svg>
-      </div> */}
-
-      {/* <div id="player-pause-music" className="d-flex justify-content-center align-items-center mx-2 p-2 " style={{backgroundColor: 'white', borderRadius: '50%'}}
-        onClick={()=> {
-          audioRef.current.pause()
-          pauseMusic()
-        }}
-      >
-        <svg role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z"></path><path d="M3 2h3v12H3zm7 0h3v12h-3z"></path></svg>
-      </div> */}
 
       <div id="player-next-music" className="icon-target-area mx-2"
         onClick={() => {
-          console.log(audioRef.current.src)
-
           redoCurrentMusic()
         }}
       >

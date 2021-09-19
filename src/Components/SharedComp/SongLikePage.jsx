@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 const mapStateToProps = (props) => props;
 // {<TrackMusic />}
 function SongLikePage(props) {
-  console.log(props);
   return (
     <div>
       {" "}

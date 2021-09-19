@@ -57,7 +57,6 @@ export const playerReducer = (state = playerState, action) => {
                 }
             }
         default: {
-            console.log('inside default mainReducer')
             return state
         }
 

@@ -11,7 +11,6 @@ export const fillMusicsAction = (query) => {
             })
             if (response.ok) {
                 let data = await response.json()
-                console.log('fetch response', data)
 
                 dispatch({
                     type: 'FILL_MUSICS',

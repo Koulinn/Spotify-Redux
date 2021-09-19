@@ -24,7 +24,6 @@ function DisplaySearch(props) {
             setIsLoading(true)
             try {
                 let response = await getFromDeezerRapid(props.searchValue)
-                console.log(response)
                     setIsLoading(false)
     
                     

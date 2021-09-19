@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 function TrackMusic({ playLists, ...props }) {
-  //   console.log(props.addSongLike);
   const [heartIcon, setHeartIcon] = useState(true);
   const [clickHeart, setClickHeart] = useState(false);
 
@@ -36,7 +35,6 @@ function TrackMusic({ playLists, ...props }) {
       <div className="trackNumber d-flex justify-content-center align-items-center">
         <span className=" d-flex align-items-center justify-content-center modTranslate">{props.index + 1}</span>
       </div>
-      {console.log(props.track, 'Inside TRACK MUSIC')}
       <div className="col-md-5 col-8 trackName d-flex align-items-center justify-content-start">
         <img src={props.album.cover_small} alt="" />
         <div className="d-flex flex-column pl-3 tableMusicTitle ">

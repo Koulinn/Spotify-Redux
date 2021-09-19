@@ -5,7 +5,6 @@ const playList = {
 export const playListsReducer = (state = playList, action) => {
     switch (action.type) {
         case 'CREATE_PLAYLIST':
-            console.log('Inside CREATE_PLAYLIST')
             return {
                 ...state,
                 [action.payload]: [],
@@ -13,7 +12,6 @@ export const playListsReducer = (state = playList, action) => {
             }
 
         case 'IS_NOT_NEW_PLAYLIST':
-            console.log('Inside CREATE_PLAYLIST')
             return {
                 ...state,
                 isNewPlayList: false
@@ -25,7 +23,6 @@ export const playListsReducer = (state = playList, action) => {
                 isNewPlayList: true
             }
         default: {
-            console.log('inside default playListsReducer')
             return state
         }
 

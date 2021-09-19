@@ -13,13 +13,6 @@ function AlbumCover(props) {
         getDataFromAPI(props.currentAlbumID)
     ,[props.currentAlbumID])
 
-    // useEffect(()=>
-    //    {getDataFromAPI(props.currentAlbumID)
-    //     // console.log(currentAlbum)
-    // }
-    // ,[])
-
-
     const getDataFromAPI = async (query) => {
         try {
             let response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/` + query)
@@ -27,7 +20,6 @@ function AlbumCover(props) {
             if(response.ok){
                 let dataRequested = await response.json()
                 setCurrentAlbum(dataRequested)
-                console.log(dataRequested, 'inside dataRequested AlbumCover')
                 props.getTrackList(dataRequested.tracklist)
             }
         } catch (e) {
@@ -38,7 +30,6 @@ function AlbumCover(props) {
     return (
         
         <section id="albumCover" className="row d-flex flex-column mt-3 py-0 px-4 m-0">
-            {/* {console.log(currentAlbum, 'AlbumCover<<<<<<<<<<<<<<<<<<<<<<<<<<')} */}
             {currentAlbum ? (
                
             <div className=" col-12 jumbotron jumbotron-fluid bg-transparent p-0">
