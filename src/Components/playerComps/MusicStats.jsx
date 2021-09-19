@@ -1,18 +1,26 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-function MusicStats({currentMusic}) {
+const mapDispatchToProps = (dispatch) => ({
+ 
+  })
+const mapStateToProps = (state) => state
+
+function MusicStats({playerReducer, ...props}) {
+    const {present} = playerReducer
+    const currentMusic = present.player.current
     return (
-            <div className="footer-music-stats d-flex align-items-center">
+            <div className={"footer-music-stats d-flex align-items-center " + (currentMusic? '' : 'invisible')}>
                 <div className="footer-album-cover">
-                <img className="img-fluid" src={currentMusic ? currentMusic.album.cover_small :"https://i.scdn.co/image/ab67616d00004851b3994c94dfb241923664bb4d"} height="56" alt=""/>
+                <img className="img-fluid" src={currentMusic? currentMusic.album.cover_small : ''} height="56" alt=""/>
                 </div>
                 <div className="footer-album-text">
                     <div className="footer-music-name pl-2">
                         <p className="m-0 text-truncate">
-                        {currentMusic.title? currentMusic.title : 'Sweet Dreams (Are Made of This) - Remastered'}
+                        {currentMusic ? currentMusic.title : ''}
                         </p>
                         <span className="mod-font-size-small text-truncate">
-                        <a>{currentMusic ? currentMusic.artist.name :'Eurythmichs'}</a>
+                        <a>{currentMusic ? currentMusic.artist.name : ''}</a>
                         
                         </span>
                     </div>
@@ -38,4 +46,4 @@ function MusicStats({currentMusic}) {
     )
 }
 
-export default MusicStats
+export default connect(mapStateToProps, mapDispatchToProps)(MusicStats)

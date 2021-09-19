@@ -1,6 +1,6 @@
 const playerState = {
     player: {
-        current: 'musicCurrent.mp3',
+        current: false,
         paused: true,
         playlist: [],
     }

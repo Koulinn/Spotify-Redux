@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { pauseMusic, playMusic } from '../../redux/actions/index.js'
 import { useRef } from 'react'
 import { ActionCreators } from 'redux-undo';
+import { useEffect } from 'react';
 
 
 const mapStateToProps = (state) => state
@@ -19,6 +20,14 @@ const mapDispatchToProps = (dispatch) => ({
 function PlayerControls({ redoCurrentMusic, pauseMusic, undoCurrentMusic, playMusic, ...props }) {
   const audioRef = useRef(new Audio(props.playerReducer.present.player.current.preview));
   const isPaused = props.playerReducer.present.player.paused
+  const currentMusic = props.playerReducer.present.player.current.preview
+
+  useEffect(() => {
+    audioRef.current.src = props.playerReducer.present.player.current.preview
+    isPaused ? audioRef.current.pause() : audioRef.current.play()
+  },
+    [isPaused, currentMusic]
+  )
 
 
 
@@ -46,8 +55,8 @@ function PlayerControls({ redoCurrentMusic, pauseMusic, undoCurrentMusic, playMu
       </div>
       {isPaused ? <div id="player-play-music" className="play-button d-flex justify-content-center align-items-center mx-2"
         onClick={() => {
-          audioRef.current.src = props.playerReducer.present.player.current.preview
-          audioRef.current.play()
+          // audioRef.current.src = props.playerReducer.present.player.current.preview
+          // audioRef.current.play()
           playMusic()
         }}
       >
@@ -57,7 +66,7 @@ function PlayerControls({ redoCurrentMusic, pauseMusic, undoCurrentMusic, playMu
       </div> :
         <div id="player-pause-music" className="d-flex justify-content-center align-items-center mx-2 p-2 " style={{ backgroundColor: 'white', borderRadius: '50%' }}
           onClick={() => {
-            audioRef.current.pause()
+            // audioRef.current.pause()
             pauseMusic()
           }}
         >
