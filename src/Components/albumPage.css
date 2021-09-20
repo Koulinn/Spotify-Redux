@@ -1,158 +1,189 @@
 .BGAlbumPage {
-    background: rgb(24, 24, 24);
-    background: linear-gradient(0deg, rgba(24, 24, 24, 1) 60%, rgba(18, 18, 18, 0.9) 70%, rgb(99 122 133 / 80%) 80%, #007bff 100%);
+  background: rgb(24, 24, 24);
+  background: linear-gradient(
+    0deg,
+    rgba(24, 24, 24, 1) 60%,
+    rgba(18, 18, 18, 0.9) 70%,
+    rgb(99 122 133 / 80%) 80%,
+    #007bff 100%
+  );
 }
-
-
-
 
 #memberMenu .btn-upgrade,
-#topBarReturn>button {
-    box-shadow: none;
+#topBarReturn > button {
+  box-shadow: none;
 }
 
-#albumCover .album-img>img {
-    width: 232px;
-    height: 232px;
-    object-fit: cover;
-    box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+#albumCover .album-img > img {
+  width: 232px;
+  height: 232px;
+  object-fit: cover;
+  box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
 }
 
 h1 {
-    font-size: 74px;
-    line-height: 74px;
-    font-weight: 700;
+  font-size: 74px;
+  line-height: 74px;
+  font-weight: 700;
 }
 
 @media (max-width: 992px) {
-    #albumCover .album-img>img {
-        width: 192px;
-        height: 192px;
-        object-fit: cover;
-        box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
-    }
-    h1 {
-        font-size: 52px;
-        line-height: 56px;
-        font-weight: 700;
-    }
+  #albumCover .album-img > img {
+    width: 192px;
+    height: 192px;
+    object-fit: cover;
+    box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+  }
+  h1 {
+    font-size: 52px;
+    line-height: 56px;
+    font-weight: 700;
+  }
 }
 
-@media(max-width: 768px) {
-    .tableMusicTitle {
-        max-width: 144px;
-    }
+@media (max-width: 768px) {
+  .tableMusicTitle {
+    max-width: 144px;
+  }
 }
 
 @media (min-width: 992px) {
-    .d-tableCell {
-        display: table-cell !important;
-    }
+  .d-tableCell {
+    display: table-cell !important;
+  }
 }
 
 @media (min-width: 768px) {
-    .d-md-tableCell {
-        display: table-cell !important;
-    }
+  .d-md-tableCell {
+    display: table-cell !important;
+  }
 }
-
 
 #albumCover .seeMore,
-#albumCover .albumStats>p {
-    color: white;
+#albumCover .albumStats > p {
+  color: white;
 }
 
-#albumCover span>a {
-    color: white;
-    font-weight: 600;
-    font-size: 13px;
+#albumCover span > a {
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
 }
 
-#albumCover p>span:nth-child(1)>a:hover {
-    text-decoration: underline;
-    cursor: pointer;
+#albumCover p > span:nth-child(1) > a:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
-
 
 /* Table */
 
 #trackTable #tableHeader {
-    color: var(--fadedWhite)
+  color: var(--fadedWhite);
 }
 
-#tableHeader{
-    position: sticky;
-    top: 86px;
+#tableHeader {
+  position: sticky;
+  top: 86px;
 }
 
 #trackTable {
-    color: white;
-    background: rgb(24, 24, 24);
-    background: linear-gradient( 0deg, rgba(24, 24, 24, 1) 70%, rgba(18, 18, 18, 0.9) 80%, rgba(24, 24, 24, 0.8) 90%, rgba(43, 43, 43, 0.6) 100%);
+  color: white;
+  background: rgb(24, 24, 24);
+  background: linear-gradient(
+    0deg,
+    rgba(24, 24, 24, 1) 70%,
+    rgba(18, 18, 18, 0.9) 80%,
+    rgba(24, 24, 24, 0.8) 90%,
+    rgba(43, 43, 43, 0.6) 100%
+  );
 }
 
 #trackTable img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 #trackTable #tableHeader {
-    border-bottom: 1px solid hsla(0, 0%, 100%, .1);
-    color: #b3b3b3;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  color: #b3b3b3;
 }
 
-#trackTable>div>table>thead>tr>th:nth-child(2) {
-    width: 16px;
+#trackTable > div > table > thead > tr > th:nth-child(2) {
+  width: 16px;
 }
 
-#trackTable>div>table>tbody>tr>th {
-    width: 16px;
+#trackTable > div > table > tbody > tr > th {
+  width: 16px;
 }
 
-#trackTable>div>table>tbody>tr>td {}
+#trackTable > div > table > tbody > tr > td {
+}
 
 .table td,
 .table th {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 #trackTable .trackNumber {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
-#trackTable .trackName {
+/* #trackTable .trackName {
     overflow: hidden;
-}
+} */
 
 #trackTable .tableMusicTitle {
-    width: 50%;
-    overflow: hidden;
+  width: 50%;
+  overflow: hidden;
 }
 
-#trackTable .trackAlbum {}
+#trackTable .trackAlbum {
+}
 
-#trackTable .trackDate {}
+#trackTable .trackDate {
+}
 
 #trackTable .trackDuration {
-    max-width: 80px;
+  max-width: 80px;
 }
 
-.tableMusicTitle>p {}
-
-
-.modTranslate{
-    transform: translateY(4px);
-
+.tableMusicTitle > p {
 }
 
-#tableHeader{
-    transition: background-color .4s ease;
+.modTranslate {
+  transform: translateY(4px);
+}
 
+#tableHeader {
+  transition: background-color 0.4s ease;
 }
 
 
-.playListMenu{
-    list-style: none;
+
+.playListMenu {
+  list-style: none;
+  position: absolute;
+  background-color: #252424;
+  color: var(--fadedWhite);
+  border-radius: 8px;
+  top: -7px;
+  z-index: 50;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    12px 13px 18px 5px rgba(0, 0, 0, 0.36);
+  box-shadow: 0px 10px 13px -7px #000000, 12px 13px 18px 5px rgba(0, 0, 0, 0.36);
+  right: -272px;
+  width: 256px;
+  transition: all 1s;
+}
+
+.playListMenu > li{
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 1s;
+}
+.playListMenu > li:hover{
+    text-decoration: underline;
+    background-color: #000000;
 }

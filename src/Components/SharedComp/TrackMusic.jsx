@@ -42,16 +42,18 @@ function TrackMusic({ playLists, ...props }) {
           <span className="mod-font-size-small mod-text-colorFadedWhite m-0 p-0">{props.track.artist.name}</span>
         </div>
         {getPlayLists().length != 0 ?
-          <Badge pill className="ml-2" bg="primary"
-            onClick={() => setShow(!show)}
-          >
-            <MdAdd style={{ width: '24px', height: '24px' }} /> playlist
-          </Badge>
+          <div className="position-relative">
+            <Badge pill className="ml-2" bg="primary"
+              onClick={() => setShow(!show)}
+            >
+              <MdAdd style={{ width: '24px', height: '24px' }} /> playlist
+            </Badge>
+            <PlayListMenu track={props.track} show={show} setShow={setShow} />
+          </div>
           :
           <small>Create a playlist first</small>
 
         }
-        <PlayListMenu track={props.track} show={show} setShow={setShow} />
 
       </div>
       <div className="col trackAlbum d-none d-md-flex justify-content-center align-items-center mod-font-size-small mod-text-colorFadedWhite">

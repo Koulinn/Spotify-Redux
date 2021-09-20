@@ -34,9 +34,9 @@ function PlayListMenu({ playLists, show, setShow, track, addMusicToReduxPlayList
 
 
     return (
-        <ul className={show ? "playListMenu" : 'd-none'}>
+        <ul className={show ? "playListMenu p-0" : ' d-none'}>
             {getPlayLists().map((playListName, i) =>
-                <li key={i} className={'playListMenu my-3'} onClick={()=>callActionFromDispatchs(playListName)}> {playListName}</li>
+                <li key={i} onClick={()=>callActionFromDispatchs(playListName)}> {playListName}</li>
             )}
         </ul>
     )
